@@ -23,7 +23,7 @@ export default function HowItWorks() {
 
   return (
     <section id="how" className="border-t border-[#1A1A1A]/10 dark:border-[#F0EDE8]/10 px-6 md:px-10 lg:px-16 py-24 lg:py-36">
-      <p className="text-[0.58rem] font-semibold tracking-[0.28em] uppercase text-[#1A1A1A]/35 dark:text-[#F0EDE8]/35 mb-16
+      <p className="text-xs font-semibold tracking-[0.28em] uppercase text-[#1A1A1A]/35 dark:text-[#F0EDE8]/35 mb-16
         flex items-center gap-4 after:block after:w-9 after:h-px after:bg-[#1A1A1A]/10 dark:after:bg-[#F0EDE8]/10">
         How it works
       </p>

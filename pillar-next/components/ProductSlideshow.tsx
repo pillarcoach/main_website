@@ -16,30 +16,50 @@ export default function ProductSlideshow() {
   const next = () => setCurrent(c => (c + 1) % slides.length)
 
   return (
-    <section className="min-h-[100dvh] flex flex-col border-t border-[#1A1A1A]/10 dark:border-[#F0EDE8]/10">
+    <section className="border-t border-[#1A1A1A]/10 dark:border-[#F0EDE8]/10
+      px-6 md:px-10 lg:px-16 pt-24 pb-10">
 
-      <div className="flex-1 relative">
+      {/* Frame — fixed 16:9, images fit inside */}
+      <div className="w-[70%] mx-auto aspect-video rounded-xl overflow-hidden border border-[#1A1A1A]/12 dark:border-[#F0EDE8]/12 relative group">
         <Image
           key={current}
           src={slides[current]}
           alt={`Pillar device — view ${current + 1}`}
           fill
-          className="object-contain p-8 lg:p-16"
+          className="object-contain"
           priority={current === 0}
         />
-      </div>
 
-      <div className="flex items-center justify-between px-6 md:px-10 lg:px-16 py-6 border-t border-[#1A1A1A]/10 dark:border-[#F0EDE8]/10">
+        {/* Prev arrow */}
         <button
           onClick={prev}
           aria-label="Previous"
-          className="text-[0.72rem] font-bold tracking-[0.12em] uppercase text-[#1A1A1A]/40 dark:text-[#F0EDE8]/40
-            hover:text-[#1A1A1A] dark:hover:text-[#F0EDE8] transition-colors duration-200 min-h-[44px] flex items-center gap-2"
+          className="absolute left-3 top-1/2 -translate-y-1/2
+            w-8 h-8 flex items-center justify-center rounded-full
+            bg-[#1A1A1A]/20 hover:bg-[#1A1A1A]/40
+            transition-all duration-200 opacity-0 group-hover:opacity-100"
         >
-          ← Prev
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
         </button>
 
-        <div className="flex items-center gap-2.5">
+        {/* Next arrow */}
+        <button
+          onClick={next}
+          aria-label="Next"
+          className="absolute right-3 top-1/2 -translate-y-1/2
+            w-8 h-8 flex items-center justify-center rounded-full
+            bg-[#1A1A1A]/20 hover:bg-[#1A1A1A]/40
+            transition-all duration-200 opacity-0 group-hover:opacity-100"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </button>
+
+        {/* Dots */}
+        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2">
           {slides.map((_, i) => (
             <button
               key={i}
@@ -47,22 +67,14 @@ export default function ProductSlideshow() {
               aria-label={`View ${i + 1}`}
               className={`rounded-full transition-all duration-200 ${
                 i === current
-                  ? 'w-4 h-1.5 bg-[#9B2B2B]'
-                  : 'w-1.5 h-1.5 bg-[#1A1A1A]/20 dark:bg-[#F0EDE8]/20 hover:bg-[#1A1A1A]/40 dark:hover:bg-[#F0EDE8]/40'
+                  ? 'w-3.5 h-1 bg-[#9B2B2B]'
+                  : 'w-1 h-1 bg-white/40 hover:bg-white/70'
               }`}
             />
           ))}
         </div>
-
-        <button
-          onClick={next}
-          aria-label="Next"
-          className="text-[0.72rem] font-bold tracking-[0.12em] uppercase text-[#1A1A1A]/40 dark:text-[#F0EDE8]/40
-            hover:text-[#1A1A1A] dark:hover:text-[#F0EDE8] transition-colors duration-200 min-h-[44px] flex items-center gap-2"
-        >
-          Next →
-        </button>
       </div>
+
     </section>
   )
 }

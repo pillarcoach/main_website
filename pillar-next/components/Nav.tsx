@@ -52,7 +52,7 @@ export default function Nav() {
           ? 'bg-[#EDEAE4]/90 dark:bg-[#0D0D0D]/90 backdrop-blur-xl border-b border-[#1A1A1A]/[0.08] dark:border-[#F0EDE8]/[0.08]'
           : ''}`}
     >
-      <Link href="/" className="text-[0.7rem] font-bold tracking-[0.22em] uppercase text-[#1A1A1A] dark:text-[#F0EDE8]">
+      <Link href="/" className="text-sm font-bold tracking-[0.22em] uppercase text-[#1A1A1A] dark:text-[#F0EDE8]">
         Pillar
       </Link>
 
