@@ -5,11 +5,11 @@ import { motion } from 'framer-motion'
 
 export default function CareersTeaser() {
   return (
-    <section className="border-t border-white/[0.07] relative overflow-hidden px-6 md:px-10 lg:px-16 py-24 lg:py-36 min-h-[40vh] flex items-center">
+    <section className="border-t border-[#1A1A1A]/10 relative overflow-hidden px-6 md:px-10 lg:px-16 py-24 lg:py-36 min-h-[40vh] flex items-center">
 
       <div className="relative z-10 max-w-lg">
-        <p className="text-[0.58rem] font-semibold tracking-[0.28em] uppercase text-white/22 mb-10
-          flex items-center gap-4 after:block after:w-9 after:h-px after:bg-white/[0.07]">
+        <p className="text-[0.58rem] font-semibold tracking-[0.28em] uppercase text-[#1A1A1A]/35 mb-10
+          flex items-center gap-4 after:block after:w-9 after:h-px after:bg-[#1A1A1A]/10">
           The team
         </p>
         <motion.h3
@@ -17,7 +17,7 @@ export default function CareersTeaser() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-          className="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-[1.08] tracking-[-0.025em] mb-5"
+          className="display text-[clamp(2rem,5vw,3.5rem)] font-bold leading-[1.08] tracking-[-0.025em] mb-5 text-[#1A1A1A]"
         >
           Interested in<br />the space?
         </motion.h3>
@@ -26,7 +26,7 @@ export default function CareersTeaser() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-          className="text-[0.9375rem] text-white/50 leading-[1.75] mb-8 max-w-sm"
+          className="text-[0.9375rem] text-[#1A1A1A]/55 leading-[1.75] mb-8 max-w-sm"
         >
           We're a small team building hardware we'd actually want to use.
           If you care about computer vision, precision engineering, or just want
@@ -38,19 +38,18 @@ export default function CareersTeaser() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
           href="mailto:hello@pillar.ai"
-          className="text-[0.85rem] font-semibold text-[#F0EDE8] border-b border-white/30
-            hover:border-white transition-colors duration-200 pb-0.5"
+          className="text-[0.85rem] font-semibold text-[#1A1A1A] border-b border-[#1A1A1A]/30
+            hover:border-[#1A1A1A] transition-colors duration-200 pb-0.5"
         >
           Say hello →
         </motion.a>
       </div>
 
-      {/* Background watermark */}
       <div
         aria-hidden
         className="absolute bottom-[-2rem] left-1/2 -translate-x-1/2 font-bold
           text-[clamp(6rem,18vw,15rem)] leading-none tracking-[-0.03em]
-          text-white/[0.035] whitespace-nowrap pointer-events-none select-none"
+          text-[#1A1A1A]/[0.04] whitespace-nowrap pointer-events-none select-none"
         style={{ filter: 'blur(1.5px)' }}
       >
         Pillar.
