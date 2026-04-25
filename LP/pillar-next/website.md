@@ -53,3 +53,6 @@
 ## Technical
 - No bloat animations — static and fast
 - Mobile: hamburger nav only if needed, JOIN BETA always visible
+
+## Git Workflow
+- Always run the site locally first and confirm satisfaction before pushing to GitHub
