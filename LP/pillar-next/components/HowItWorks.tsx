@@ -1,35 +1,61 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 
 const steps = [
-  { n: '01', title: 'Place',  body: 'Set Pillar on the floor or a bench facing your rack. Ten seconds. Done.' },
-  { n: '02', title: 'Lift',   body: 'Train normally. Pillar watches — every rep, every angle, without you thinking about it.' },
-  { n: '03', title: 'Listen', body: 'Real-time audio tells you exactly what to fix. Like having a coach in your ear — without the awkward small talk.' },
+  {
+    title: 'Place',
+    body: 'Set Pillar on the floor or a bench facing your rack. It sees everything from there — your full range of motion, both sides, every rep. Ten seconds. Done.',
+  },
+  {
+    title: 'Lift',
+    body: 'Train exactly as you normally would. Pillar runs in the background — tracking every rep, reading depth and symmetry, building a picture of how you move. You don\'t think about it.',
+  },
+  {
+    title: 'Listen',
+    body: 'When something\'s off, you hear it. Not after the set — during it. A real-time cue, in plain language, telling you exactly what to fix. Like a coach standing next to you. Without the small talk.',
+  },
 ]
 
 export default function HowItWorks() {
+  const [open, setOpen] = useState<number | null>(null)
+
   return (
-    <section id="how" className="border-t border-white/[0.07] px-6 md:px-10 lg:px-16 py-24 lg:py-36">
-      <p className="text-[0.58rem] font-semibold tracking-[0.28em] uppercase text-white/22 mb-16
-        flex items-center gap-4 after:block after:w-9 after:h-px after:bg-white/[0.07]">
+    <section id="how" className="border-t border-[#1A1A1A]/10 px-6 md:px-10 lg:px-16 py-24 lg:py-36">
+      <p className="text-[0.58rem] font-semibold tracking-[0.28em] uppercase text-[#1A1A1A]/35 mb-16
+        flex items-center gap-4 after:block after:w-9 after:h-px after:bg-[#1A1A1A]/10">
         How it works
       </p>
-      <div className="border-t border-white/[0.07]">
+
+      <div className="border-t border-[#1A1A1A]/10">
         {steps.map((s, i) => (
           <motion.div
-            key={s.n}
-            initial={{ opacity: 0, y: 24 }}
+            key={s.title}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '0px 0px -60px 0px' }}
-            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: i * 0.1 }}
-            className="grid grid-cols-[3rem_1fr] gap-4 items-start py-10 border-b border-white/[0.07]"
+            viewport={{ once: true, margin: '0px 0px -40px 0px' }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: i * 0.06 }}
+            className="border-b border-[#1A1A1A]/10"
           >
-            <span className="text-[0.6rem] font-semibold tracking-[0.2em] text-white/22 pt-1">{s.n}</span>
-            <div>
-              <p className="text-[1.5rem] font-bold tracking-[0.06em] uppercase mb-3">{s.title}</p>
-              <p className="text-[0.9375rem] leading-relaxed text-white/50">{s.body}</p>
-            </div>
+            <button
+              onClick={() => setOpen(open === i ? null : i)}
+              className="w-full text-left py-8 lg:py-10 flex items-center justify-between gap-6 group"
+              aria-expanded={open === i}
+            >
+              <span className="display text-[clamp(2rem,5vw,3.5rem)] font-bold tracking-[-0.02em] uppercase text-[#1A1A1A] leading-none">
+                {s.title}
+              </span>
+              <span className="text-[1.75rem] text-[#1A1A1A]/30 group-hover:text-[#9B2B2B] transition-colors duration-200 shrink-0 leading-none select-none">
+                {open === i ? '−' : '+'}
+              </span>
+            </button>
+
+            {open === i && (
+              <p className="text-[1rem] leading-[1.8] text-[#1A1A1A]/60 pb-10 max-w-2xl">
+                {s.body}
+              </p>
+            )}
           </motion.div>
         ))}
       </div>

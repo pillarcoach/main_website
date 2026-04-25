@@ -3,20 +3,20 @@
 import { motion } from 'framer-motion'
 
 const statements = [
-  'Most people lift alone. No feedback. Just habits — good and bad — quietly compounding every session.',
-  'Injury doesn\'t announce itself. You feel it months after the damage was done.',
-  'A good coach changes everything. Most people never get one.',
+  'You train alone. Every rep, good habits and bad ones compound in silence.',
+  'Injury doesn\'t warn you. By the time you feel it, you\'ve already done it a hundred times.',
+  'A good coach would have caught it. Most people never have one.',
 ]
 
 export default function Why() {
   return (
-    <section className="border-t border-white/[0.07] px-6 md:px-10 lg:px-16 py-24 lg:py-36">
-      <p className="text-[0.58rem] font-semibold tracking-[0.28em] uppercase text-white/22 mb-16
-        flex items-center gap-4 after:block after:w-9 after:h-px after:bg-white/[0.07]">
+    <section className="border-t border-[#1A1A1A]/10 px-6 md:px-10 lg:px-16 py-24 lg:py-36">
+      <p className="text-[0.58rem] font-semibold tracking-[0.28em] uppercase text-[#1A1A1A]/35 mb-16
+        flex items-center gap-4 after:block after:w-9 after:h-px after:bg-[#1A1A1A]/10">
         The problem
       </p>
 
-      <div className="divide-y divide-white/[0.07]">
+      <div className="divide-y divide-[#1A1A1A]/10">
         {statements.map((s, i) => (
           <motion.div
             key={i}
@@ -26,7 +26,7 @@ export default function Why() {
             transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1], delay: i * 0.08 }}
             className="py-10 lg:py-14 first:pt-0"
           >
-            <p className="text-[clamp(1.6rem,4vw,3.2rem)] font-bold leading-[1.1] tracking-[-0.03em]">
+            <p className="display text-[clamp(1.6rem,4vw,3.2rem)] font-bold leading-[1.1] tracking-[-0.03em] text-[#1A1A1A]">
               {s}
             </p>
           </motion.div>

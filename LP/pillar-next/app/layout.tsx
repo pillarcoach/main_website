@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Space_Grotesk, Barlow_Condensed } from 'next/font/google'
+import { Space_Grotesk, Barlow_Condensed, Inter_Tight } from 'next/font/google'
 import './globals.css'
 
 const spaceGrotesk = Space_Grotesk({
@@ -16,6 +16,13 @@ const barlowCondensed = Barlow_Condensed({
   display: 'swap',
 })
 
+const interTight = Inter_Tight({
+  subsets: ['latin'],
+  weight: ['800'],
+  variable: '--font-inter-tight',
+  display: 'swap',
+})
+
 export const metadata: Metadata = {
   title: 'Pillar — Real-Time Coaching for Every Rep',
   description: 'AI coaching hardware. Watches your form in real time. Tells you what to fix.',
@@ -23,8 +30,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${barlowCondensed.variable}`}>
-      <body className="font-sans bg-[#0D0D0D] text-[#F0EDE8] antialiased overflow-x-hidden">
+    <html lang="en" className={`${spaceGrotesk.variable} ${barlowCondensed.variable} ${interTight.variable}`}>
+      <body className="font-sans bg-[#EDEAE4] text-[#1A1A1A] antialiased overflow-x-hidden">
         {children}
       </body>
     </html>
