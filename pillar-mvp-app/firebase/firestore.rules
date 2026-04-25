@@ -1,0 +1,32 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // calls collection - WebRTC signaling
+    match /calls/{callId} {
+      allow read, write: if true;
+
+      match /offerCandidates/{doc} {
+        allow read, write: if true;
+      }
+      match /answerCandidates/{doc} {
+        allow read, write: if true;
+      }
+      match /feedback/{doc} {
+        allow read, write: if true;
+      }
+      match /coaches/{doc} {
+        allow read, write: if true;
+      }
+    }
+
+    // sessions collection - session data and history
+    match /sessions/{sessionId} {
+      allow read, write: if true;
+
+      match /exerciseSets/{doc} {
+        allow read, write: if true;
+      }
+    }
+  }
+}

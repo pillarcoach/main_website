@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pillar - Stream Coach</title>
+  </head>
+  <body class="coach-page">
+    <div class="container">
+      <a href="index.html" class="brand">Pillar</a>
+      
+      <div class="main-content">
+        <!-- Session Header -->
+        <div class="session-header hidden" id="sessionHeader">
+          <div class="session-code">
+            <span class="session-code-label">Session Code:</span>
+            <span id="sessionCodeDisplay" class="session-code-value"></span>
+          </div>
+          <div class="session-header-right">
+            <div class="session-status">
+              <span id="connectionStatus" class="status-indicator">• Waiting for client</span>
+            </div>
+            <button id="hangupButtonHeader" class="btn btn-secondary btn-small hidden">
+              <span class="btn-text">End Session</span>
+            </button>
+          </div>
+        </div>
+
+        <h1 class="page-title">Stream Coach</h1>
+        
+        <!-- Status Message -->
+        <div id="statusMessage" class="status-message hidden"></div>
+
+        <!-- Coach Mode Selection -->
+        <div class="coach-mode-selection" id="coachModeSelection">
+          <div class="mode-cards">
+            <div class="mode-card" id="createSessionCard">
+              <h2 class="mode-title">Create Session</h2>
+              <p class="mode-description">Start a new coaching session</p>
+              <div class="create-exercise-group">
+                <label for="preSessionCategorySelect" class="create-exercise-label">Category</label>
+                <select id="preSessionCategorySelect" class="exercise-select">
+                  <option value="">Select Category</option>
+                  <option value="push">Push</option>
+                  <option value="pull">Pull</option>
+                  <option value="legs">Legs</option>
+                </select>
+              </div>
+              <button id="createSessionButton" class="btn btn-primary">
+                <span class="btn-text">Create Session</span>
+              </button>
+            </div>
+            
+            <div class="mode-card" id="joinSessionCard">
+              <h2 class="mode-title">Join Session</h2>
+              <p class="mode-description">Join an existing session as stream coach</p>
+              <div class="join-input-group">
+                <input 
+                  type="text" 
+                  id="coachJoinKeyInput" 
+                  class="input-field" 
+                  placeholder="Enter session code"
+                  autocomplete="off"
+                />
+                <button id="joinSessionButton" class="btn btn-primary">
+                  <span class="btn-text">Join</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="coach-dashboard hidden" id="coachDashboard">
+
+          <!-- Camera controls bar (always visible) -->
+          <div class="coach-cam-bar" id="coachCamBar">
+            <div class="coach-cam-bar-left">
+              <span class="coach-cam-status-dot" id="coachCamStatusDot"></span>
+              <span id="coachCamStatusText">Camera not confirmed</span>
+            </div>
+            <div class="coach-cam-bar-right">
+              <button id="coachCamNotSetBtn" class="coach-cam-notset-btn">Camera Not Set</button>
+              <button id="coachCamOkBtn" class="coach-cam-ok-btn">Camera OK ✓</button>
+            </div>
+          </div>
+
+          <!-- Top Controls Bar -->
+          <div class="coach-top-controls">
+            <!-- Exercise Selector -->
+            <div class="top-control-item">
+              <label class="top-control-label">Select Exercise</label>
+              <select id="exerciseSelect" class="exercise-select">
+                <option value="">Select Exercise</option>
+                <optgroup label="Push">
+                  <option value="bench-press">Bench Press</option>
+                  <option value="incline-dumbbell">Incline Dumbbell</option>
+                  <option value="shoulder-press">Shoulder Press</option>
+                </optgroup>
+                <optgroup label="Pull">
+                  <option value="lat-pulldown">Lat Pulldown</option>
+                  <option value="deadlift">Deadlift</option>
+                  <option value="barbell-rows">Barbell Rows</option>
+                </optgroup>
+                <optgroup label="Legs">
+                  <option value="squats">Squats</option>
+                </optgroup>
+              </select>
+            </div>
+
+            <!-- Rep Counter -->
+            <div class="top-control-item">
+              <label class="top-control-label">Reps</label>
+              <div class="rep-counter-top">
+                <button id="decrementRep" class="rep-button">−</button>
+                <span id="repCount" class="rep-count">0</span>
+                <button id="incrementRep" class="rep-button">+</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Main Content Area -->
+          <div class="dashboard-main">
+            <!-- Left: Client Video (Portrait) -->
+            <div class="session-section">
+              <div class="video-container coach-video-container coach-video-portrait">
+                <div class="video-wrapper">
+                  <video id="remoteVideo" autoplay playsinline></video>
+                  <div class="video-label">Client</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Set Controls and Session History -->
+            <div class="stream-controls-section">
+              <!-- Set Buttons -->
+              <div class="set-buttons-container">
+                <button id="startSetButton" class="btn btn-primary start-set-btn">
+                  <span class="btn-text">Start Set</span>
+                </button>
+                <button id="endSetButton" class="btn btn-secondary end-set-btn hidden">
+                  <span class="btn-text">End Set</span>
+                </button>
+              </div>
+
+              <!-- Client's Flow -->
+              <div class="dashboard-panel session-history-panel" id="clientFlowPanel">
+                <div class="summary-header">
+                  <label class="panel-label">Client's Flow</label>
+                </div>
+                <div id="clientFlowContent" class="summary-content">
+                  <p class="no-summary-message">Waiting for client to join…</p>
+                </div>
+              </div>
+
+              <!-- Session History -->
+              <div class="dashboard-panel session-history-panel" id="sessionHistoryPanel">
+                <div class="summary-header">
+                  <label class="panel-label">Session History</label>
+                </div>
+                <div id="sessionHistoryContent" class="summary-content">
+                  <p class="no-summary-message">No sets completed yet</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coach Summary - Below Main Content (only shown after set ends) -->
+          <div class="coach-bottom-panels">
+            <!-- Coach Summary -->
+            <div class="dashboard-panel coach-summary-panel hidden" id="coachSummaryPanel">
+              <div class="summary-header">
+                <label class="panel-label">Set Summary</label>
+                <button id="closeCoachSummaryButton" class="summary-close-btn">×</button>
+              </div>
+              <div id="coachSummaryContent" class="summary-content">
+                <p class="no-summary-message">No feedback yet</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Score Input Modal -->
+        <div class="modal-overlay hidden" id="scoreModalOverlay">
+          <div class="modal-content">
+            <h3 class="modal-title">Set Complete</h3>
+            <div class="modal-body">
+              <div class="modal-field">
+                <label for="scoreInput" class="modal-label">Score (0-10)</label>
+                <input 
+                  type="number" 
+                  id="scoreInput" 
+                  class="modal-input" 
+                  min="0" 
+                  max="10" 
+                  step="0.1"
+                  placeholder="Enter score"
+                />
+              </div>
+              <div class="modal-field">
+                <label for="notesInput" class="modal-label">Notes (Optional)</label>
+                <textarea 
+                  id="notesInput" 
+                  class="modal-textarea" 
+                  rows="3"
+                  placeholder="Add any additional notes..."
+                ></textarea>
+              </div>
+            </div>
+            <div class="modal-actions">
+              <button id="saveScoreButton" class="btn btn-primary">
+                <span class="btn-text">Save</span>
+              </button>
+              <button id="skipScoreButton" class="btn btn-secondary">
+                <span class="btn-text">Skip</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script type="module" src="/src/coach-stream.js"></script>
+  </body>
+</html>
