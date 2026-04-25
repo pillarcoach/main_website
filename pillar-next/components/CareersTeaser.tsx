@@ -37,7 +37,7 @@ export default function CareersTeaser() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          href="mailto:hello@pillar.ai"
+          href="mailto:pillar.coach@gmail.com"
           className="text-[0.85rem] font-semibold text-[#1A1A1A] dark:text-[#F0EDE8]
             border-b border-[#1A1A1A]/30 dark:border-[#F0EDE8]/30
             hover:border-[#1A1A1A] dark:hover:border-[#F0EDE8]

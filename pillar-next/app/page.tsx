@@ -17,7 +17,7 @@ export default function Home() {
         <Hero />
         <ProductSlideshow />
         <Why />
-        <Features />
+        {/* <Features /> */}
         <HowItWorks />
         <Signup />
         <CareersTeaser />
