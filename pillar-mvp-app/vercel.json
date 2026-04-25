@@ -1,0 +1,45 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "vite",
+  "rewrites": [
+    {
+      "source": "/coach.html",
+      "destination": "/coach.html"
+    },
+    {
+      "source": "/coach-stream.html",
+      "destination": "/coach-stream.html"
+    },
+    {
+      "source": "/coach-feedback.html",
+      "destination": "/coach-feedback.html"
+    },
+    {
+      "source": "/client.html",
+      "destination": "/client.html"
+    },
+    {
+      "source": "/client-workout.html",
+      "destination": "/client-workout.html"
+    },
+    {
+      "source": "/client-session.html",
+      "destination": "/client-session.html"
+    },
+    {
+      "source": "/summary.html",
+      "destination": "/summary.html"
+    },
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    },
+    {
+      "source": "/((?!assets/).*)",
+      "destination": "/index.html"
+    }
+  ]
+}

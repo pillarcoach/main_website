@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Pillar - Build Your Flow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@700;800&display=swap" rel="stylesheet">
+  </head>
+  <body class="client-page flow-page">
+    <div class="flow-screen">
+
+      <!-- Top nav -->
+      <div class="flow-nav">
+        <a href="client.html" id="flowBackBtn" class="join-back-btn" aria-label="Back">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <div class="join-step-label">STEP 2 / 2</div>
+        <div style="width:40px"></div>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="join-progress">
+        <div class="join-progress-fill"></div>
+        <div class="join-progress-fill"></div>
+        <div class="join-progress-empty"></div>
+      </div>
+
+      <!-- Header -->
+      <div class="flow-header">
+        <h1 class="flow-title">Build your flow</h1>
+        <p class="flow-subtitle">Drag to rank the exercises in the order you'd like to do them.</p>
+      </div>
+
+      <!-- Stats strip -->
+      <div class="flow-stats">
+        <div class="flow-stat-card">
+          <div class="flow-stat-label">EXERCISES</div>
+          <div class="flow-stat-value" id="flowBlockCount">2</div>
+        </div>
+        <div class="flow-stat-card flow-stat-card--dark">
+          <div class="flow-stat-label flow-stat-label--light">STARTS WITH</div>
+          <div class="flow-stat-value flow-stat-value--light" id="flowStartsWith">—</div>
+        </div>
+      </div>
+
+      <!-- Block list -->
+      <div class="flow-list" id="flowList">
+        <!-- Populated by JS -->
+      </div>
+
+      <!-- CTA -->
+      <div class="flow-footer">
+        <button id="startWorkoutButton" class="join-submit-btn">
+          Start session
+          <svg class="join-submit-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div id="statusMessage" class="status-message hidden"></div>
+      </div>
+
+    </div>
+
+    <script type="module" src="/src/client-workout.js"></script>
+  </body>
+</html>

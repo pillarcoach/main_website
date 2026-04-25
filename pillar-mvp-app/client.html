@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Pillar - Join</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@700;800&display=swap" rel="stylesheet">
+  </head>
+  <body class="client-page join-page">
+    <div class="join-screen">
+      <!-- Top nav -->
+      <div class="join-nav">
+        <a href="index.html" class="join-back-btn" aria-label="Back">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <div class="join-step-label">STEP 1 / 1</div>
+        <div style="width:40px"></div>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="join-progress">
+        <div class="join-progress-fill"></div>
+        <div class="join-progress-empty"></div>
+        <div class="join-progress-empty"></div>
+      </div>
+
+      <!-- Header -->
+      <div class="join-header">
+        <div class="pillar-logo-sm">
+          <span class="pillar-logo-word">Pillar<span class="pillar-logo-dot">.</span></span>
+          <span class="pillar-logo-dash" aria-hidden="true"></span>
+        </div>
+        <h1 class="join-title">Enter your<br>join key</h1>
+        <p class="join-subtitle">Six characters. Check the screen at your station or the link from your coach.</p>
+      </div>
+
+      <!-- 6-slot key pad -->
+      <div class="join-keypad">
+        <div class="join-slots" id="joinSlots">
+          <input class="join-slot" id="slot0" maxlength="1" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" />
+          <input class="join-slot" id="slot1" maxlength="1" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" />
+          <input class="join-slot" id="slot2" maxlength="1" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" />
+          <input class="join-slot" id="slot3" maxlength="1" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" />
+          <input class="join-slot" id="slot4" maxlength="1" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" />
+          <input class="join-slot" id="slot5" maxlength="1" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" />
+        </div>
+
+        <!-- Hidden legacy input kept for JS compatibility -->
+        <input type="hidden" id="joinKeyInput" />
+
+        <div id="statusMessage" class="status-message hidden"></div>
+
+      <!-- Status bottom sheet -->
+      <div class="lf-end-overlay hidden" id="joinStatusOverlay">
+        <div class="lf-end-sheet">
+          <p class="lf-end-label" id="joinStatusLabel">INFO</p>
+          <h2 class="lf-end-title" id="joinStatusTitle"></h2>
+          <p class="lf-end-body" id="joinStatusBody"></p>
+          <button class="lf-end-btn-keep hidden" id="joinStatusDismiss">OK</button>
+        </div>
+      </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="join-footer">
+        <button id="joinButton" class="join-submit-btn" disabled>
+          Continue
+          <svg class="join-submit-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <script type="module" src="/src/client-join.js"></script>
+  </body>
+</html>
