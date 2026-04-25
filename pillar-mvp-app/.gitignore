@@ -1,7 +1,11 @@
 node_modules
 .DS_Store
+
 dist
 dist-ssr
-*.local
+
 .vercel
-.env*.local
+
+.env
+.env.*
+*.local
