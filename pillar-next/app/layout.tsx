@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Space_Grotesk, Barlow_Condensed, Inter_Tight } from 'next/font/google'
+import ThemeProvider from '@/components/ThemeProvider'
 import './globals.css'
 
 const spaceGrotesk = Space_Grotesk({
@@ -31,8 +32,17 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${barlowCondensed.variable} ${interTight.variable}`}>
-      <body className="font-sans bg-[#EDEAE4] text-[#1A1A1A] antialiased overflow-x-hidden">
-        {children}
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var s=localStorage.getItem('theme');var d=s||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');if(d==='dark')document.documentElement.classList.add('dark');}catch(e){}})();`,
+          }}
+        />
+      </head>
+      <body className="font-sans bg-[#EDEAE4] dark:bg-[#0D0D0D] text-[#1A1A1A] dark:text-[#F0EDE8] antialiased overflow-x-hidden">
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )

@@ -16,7 +16,7 @@ export default function ProductSlideshow() {
   const next = () => setCurrent(c => (c + 1) % slides.length)
 
   return (
-    <section className="min-h-[100dvh] flex flex-col border-t border-[#1A1A1A]/10">
+    <section className="min-h-[100dvh] flex flex-col border-t border-[#1A1A1A]/10 dark:border-[#F0EDE8]/10">
 
       <div className="flex-1 relative">
         <Image
@@ -29,12 +29,12 @@ export default function ProductSlideshow() {
         />
       </div>
 
-      <div className="flex items-center justify-between px-6 md:px-10 lg:px-16 py-6 border-t border-[#1A1A1A]/10">
+      <div className="flex items-center justify-between px-6 md:px-10 lg:px-16 py-6 border-t border-[#1A1A1A]/10 dark:border-[#F0EDE8]/10">
         <button
           onClick={prev}
           aria-label="Previous"
-          className="text-[0.72rem] font-bold tracking-[0.12em] uppercase text-[#1A1A1A]/40
-            hover:text-[#1A1A1A] transition-colors duration-200 min-h-[44px] flex items-center gap-2"
+          className="text-[0.72rem] font-bold tracking-[0.12em] uppercase text-[#1A1A1A]/40 dark:text-[#F0EDE8]/40
+            hover:text-[#1A1A1A] dark:hover:text-[#F0EDE8] transition-colors duration-200 min-h-[44px] flex items-center gap-2"
         >
           ← Prev
         </button>
@@ -48,7 +48,7 @@ export default function ProductSlideshow() {
               className={`rounded-full transition-all duration-200 ${
                 i === current
                   ? 'w-4 h-1.5 bg-[#9B2B2B]'
-                  : 'w-1.5 h-1.5 bg-[#1A1A1A]/20 hover:bg-[#1A1A1A]/40'
+                  : 'w-1.5 h-1.5 bg-[#1A1A1A]/20 dark:bg-[#F0EDE8]/20 hover:bg-[#1A1A1A]/40 dark:hover:bg-[#F0EDE8]/40'
               }`}
             />
           ))}
@@ -57,8 +57,8 @@ export default function ProductSlideshow() {
         <button
           onClick={next}
           aria-label="Next"
-          className="text-[0.72rem] font-bold tracking-[0.12em] uppercase text-[#1A1A1A]/40
-            hover:text-[#1A1A1A] transition-colors duration-200 min-h-[44px] flex items-center gap-2"
+          className="text-[0.72rem] font-bold tracking-[0.12em] uppercase text-[#1A1A1A]/40 dark:text-[#F0EDE8]/40
+            hover:text-[#1A1A1A] dark:hover:text-[#F0EDE8] transition-colors duration-200 min-h-[44px] flex items-center gap-2"
         >
           Next →
         </button>

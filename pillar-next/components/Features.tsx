@@ -12,7 +12,7 @@ const features = [
 
 export default function Features() {
   return (
-    <section className="border-t border-[#1A1A1A]/10 overflow-hidden">
+    <section className="border-t border-[#1A1A1A]/10 dark:border-[#F0EDE8]/10 overflow-hidden">
       <div className="px-6 md:px-10 lg:px-16 py-24 lg:py-36 lg:grid lg:grid-cols-2 lg:gap-16 lg:items-start">
 
         {/* Sticky image column — hidden on mobile */}
@@ -23,8 +23,8 @@ export default function Features() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="hidden lg:block mb-0 lg:sticky lg:top-20"
         >
-          <p className="text-[0.58rem] font-semibold tracking-[0.28em] uppercase text-[#1A1A1A]/35 mb-10
-            flex items-center gap-4 after:block after:w-9 after:h-px after:bg-[#1A1A1A]/10">
+          <p className="text-[0.58rem] font-semibold tracking-[0.28em] uppercase text-[#1A1A1A]/35 dark:text-[#F0EDE8]/35 mb-10
+            flex items-center gap-4 after:block after:w-9 after:h-px after:bg-[#1A1A1A]/10 dark:after:bg-[#F0EDE8]/10">
             What Pillar does
           </p>
           <div className="relative aspect-[3/4] max-h-[560px]">
@@ -39,11 +39,11 @@ export default function Features() {
 
         {/* Feature list */}
         <div>
-          <p className="lg:hidden text-[0.58rem] font-semibold tracking-[0.28em] uppercase text-[#1A1A1A]/35 mb-10
-            flex items-center gap-4 after:block after:w-9 after:h-px after:bg-[#1A1A1A]/10">
+          <p className="lg:hidden text-[0.58rem] font-semibold tracking-[0.28em] uppercase text-[#1A1A1A]/35 dark:text-[#F0EDE8]/35 mb-10
+            flex items-center gap-4 after:block after:w-9 after:h-px after:bg-[#1A1A1A]/10 dark:after:bg-[#F0EDE8]/10">
             What Pillar does
           </p>
-          <div className="border-t border-[#1A1A1A]/10">
+          <div className="border-t border-[#1A1A1A]/10 dark:border-[#F0EDE8]/10">
             {features.map((f, i) => (
               <motion.div
                 key={f.n}
@@ -51,11 +51,11 @@ export default function Features() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: '0px 0px -60px 0px' }}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: i * 0.07 }}
-                className="py-8 border-b border-[#1A1A1A]/10"
+                className="py-8 border-b border-[#1A1A1A]/10 dark:border-[#F0EDE8]/10"
               >
-                <p className="text-[0.58rem] font-medium tracking-[0.22em] text-[#1A1A1A]/35 mb-3">{f.n}</p>
-                <p className="display text-[1.25rem] font-bold tracking-[0.06em] uppercase mb-3 text-[#1A1A1A]">{f.title}</p>
-                <p className="text-[0.9375rem] leading-relaxed text-[#1A1A1A]/55">{f.body}</p>
+                <p className="text-[0.58rem] font-medium tracking-[0.22em] text-[#1A1A1A]/35 dark:text-[#F0EDE8]/35 mb-3">{f.n}</p>
+                <p className="display text-[1.25rem] font-bold tracking-[0.06em] uppercase mb-3 text-[#1A1A1A] dark:text-[#F0EDE8]">{f.title}</p>
+                <p className="text-[0.9375rem] leading-relaxed text-[#1A1A1A]/55 dark:text-[#F0EDE8]/55">{f.body}</p>
               </motion.div>
             ))}
           </div>

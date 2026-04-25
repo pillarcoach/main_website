@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: var(--font-space-grotesk), system-ui, sans-serif;
 }
@@ -13,11 +15,19 @@ body {
   overflow-x: hidden;
 }
 
+.dark body {
+  background: #0D0D0D;
+  color: #F0EDE8;
+}
+
 ::selection { background: #9B2B2B; color: #F0EDE8; }
 
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: #EDEAE4; }
 ::-webkit-scrollbar-thumb { background: rgba(26,26,26,0.15); border-radius: 2px; }
+
+.dark ::-webkit-scrollbar-track { background: #0D0D0D; }
+.dark ::-webkit-scrollbar-thumb { background: rgba(240,237,232,0.15); }
 
 /* Font B: Inter Tight 800 applied to display headings */
 .font-inter h1,

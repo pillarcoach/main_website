@@ -24,10 +24,10 @@ export default function Signup() {
   }
 
   return (
-    <section id="signup" className="border-t border-[#1A1A1A]/10 px-6 md:px-10 lg:px-16 py-24 lg:py-36 min-h-[55vh] flex items-center">
+    <section id="signup" className="border-t border-[#1A1A1A]/10 dark:border-[#F0EDE8]/10 px-6 md:px-10 lg:px-16 py-24 lg:py-36 min-h-[55vh] flex items-center">
       <div className="w-full">
-        <p className="text-[0.58rem] font-semibold tracking-[0.28em] uppercase text-[#1A1A1A]/35 mb-10
-          flex items-center gap-4 after:block after:w-9 after:h-px after:bg-[#1A1A1A]/10">
+        <p className="text-[0.58rem] font-semibold tracking-[0.28em] uppercase text-[#1A1A1A]/35 dark:text-[#F0EDE8]/35 mb-10
+          flex items-center gap-4 after:block after:w-9 after:h-px after:bg-[#1A1A1A]/10 dark:after:bg-[#F0EDE8]/10">
           Limited beta
         </p>
 
@@ -36,7 +36,7 @@ export default function Signup() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-          className="display text-[clamp(2.25rem,6vw,4.5rem)] font-bold leading-[1.05] tracking-[-0.025em] mb-4 max-w-lg text-[#1A1A1A]"
+          className="display text-[clamp(2.25rem,6vw,4.5rem)] font-bold leading-[1.05] tracking-[-0.025em] mb-4 max-w-lg text-[#1A1A1A] dark:text-[#F0EDE8]"
         >
           Train with Pillar<br />this week.
         </motion.h2>
@@ -46,7 +46,7 @@ export default function Signup() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-          className="text-[0.9375rem] text-[#1A1A1A]/55 leading-[1.7] max-w-sm mb-10"
+          className="text-[0.9375rem] text-[#1A1A1A]/55 dark:text-[#F0EDE8]/55 leading-[1.7] max-w-sm mb-10"
         >
           We're running beta sessions now. Sign up and we'll reach out within 24 hours to book yours.
         </motion.p>
@@ -55,7 +55,7 @@ export default function Signup() {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-[0.9375rem] text-[#1A1A1A]/55"
+            className="text-[0.9375rem] text-[#1A1A1A]/55 dark:text-[#F0EDE8]/55"
           >
             You're on the list. We'll be in touch within 24 hours.
           </motion.p>
@@ -76,9 +76,12 @@ export default function Signup() {
               required
               inputMode="email"
               autoComplete="email"
-              className="flex-1 bg-transparent border border-[#1A1A1A]/20 text-[#1A1A1A] text-[0.9375rem]
-                px-5 py-3.5 rounded-sm outline-none placeholder:text-[#1A1A1A]/30
-                focus:border-[#1A1A1A]/50 transition-colors duration-200 min-h-[44px]"
+              className="flex-1 bg-transparent border border-[#1A1A1A]/20 dark:border-[#F0EDE8]/20
+                text-[#1A1A1A] dark:text-[#F0EDE8] text-[0.9375rem]
+                px-5 py-3.5 rounded-sm outline-none
+                placeholder:text-[#1A1A1A]/30 dark:placeholder:text-[#F0EDE8]/30
+                focus:border-[#1A1A1A]/50 dark:focus:border-[#F0EDE8]/50
+                transition-colors duration-200 min-h-[44px]"
             />
             <button
               type="submit"
@@ -93,10 +96,10 @@ export default function Signup() {
         )}
 
         {status === 'error' && (
-          <p className="mt-3 text-[0.8rem] text-red-600">Something went wrong. Try again.</p>
+          <p className="mt-3 text-[0.8rem] text-red-600 dark:text-red-400">Something went wrong. Try again.</p>
         )}
         {status !== 'done' && (
-          <p className="mt-4 text-[0.75rem] text-[#1A1A1A]/35">
+          <p className="mt-4 text-[0.75rem] text-[#1A1A1A]/35 dark:text-[#F0EDE8]/35">
             We'll reach out within 24 hours to book your session.
           </p>
         )}
