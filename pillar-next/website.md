@@ -1,52 +1,31 @@
-# Pillar Landing Page — Design Brief
+# Pillar Landing Page
 
-## Core Direction
-- **Mode:** Light (warm off-white base, ~#EDEAE4), not pure white
-- **Accent:** Red stays — coral/salmon tone in light context
-- **Feel:** Subtle playful — rounded, soft, airy. Inspired by Teenage Engineering but toned down.
-- **Priority:** Product-first, light lifestyle undertones
-- **Mobile:** Smartphone-friendly is a primary requirement
-- **Copy:** Heavy rewrite needed across sections
-- **Deadline:** Launch in hours. YC application by May 4.
+> This file should be updated each chat session. Only add things that are high-level and important — decisions, constraints, and context that would be lost otherwise. No implementation details.
+
+## About
+AI coaching hardware. Watches form in real time, gives live audio feedback. Target: serious lifters who train alone.
+
+## Design
+- Light mode: warm off-white `#EDEAE4`, red accent `#9B2B2B` stays
+- Feel: subtle and soft — inspired by Teenage Engineering but toned down
+- No bloat animations. Static and fast.
+- Mobile-first is a hard requirement. JOIN BETA always visible on mobile.
 
 ## Typography
-- **Current fonts:** Keep (Space Grotesk bold)
-- **Second pairing:** Inter Tight weight 800, tight tracking — toggle via A/B button (bottom-right corner)
+Two options under evaluation via A/B toggle (bottom-right corner of site):
+- **A** — Space Grotesk Bold (current)
+- **B** — Inter Tight 800, tight tracking
 
-## Section Order & Treatment
+## Page Structure
+Hero → Product Slideshow → The Problem → Features → How It Works → Signup → Team → Footer
 
-### Nav
-- Slim. "JOIN BETA" stays visible on mobile (persistent — drives beta signups).
+## Key Decisions
+- Product slideshow (full-screen, user-controlled) replaces the broken image grid
+- How It Works (Place / Lift / Listen) uses an accordion — all collapsed by default
+- The Problem section: raw declarative prose, no numbering or borders
+- Signup is email capture only — beta session booking, backend TBD
+- New desktop product images needed (user to provide correct aspect ratio)
 
-### Hero
-- Keep split layout. Hero image full-bleed to right edge. Fix spacing/marquee bleed.
-- Mobile: headline first, device image full-width stacked below
-
-### Product Slideshow (replaces broken image grid)
-- Immediately after hero. Full-screen, one image at a time, user-controlled next/prev.
-- No captions — just the device. Desktop: user will provide new images with correct aspect ratio.
-
-### Marquee
-- Keep, restyled to be more prominent (bigger, bolder)
-
-### Why (The Problem)
-- Raw declarative prose — no numbering, no borders. Feel like facts, not captions.
-
-### Features (What Pillar Does)
-- Keep layout. Hide device image on mobile.
-
-### How It Works (Place · Lift · Listen)
-- All three start collapsed. Tap/click to expand detail. No numbering, prose style.
-
-### Signup
-- Beta session booking flow. Email capture UI only for now.
-
-### CareersTeaser + Footer
-- Keep as-is
-
-## Technical
-- No bloat animations — static and fast
-- Mobile: hamburger nav only if needed, JOIN BETA always visible
-
-## Git Workflow
-- Always run the site locally first and confirm satisfaction before pushing to GitHub
+## Business
+- YC application deadline: May 4, 2026
+- Copy across all sections needs a heavy rewrite (in progress)
