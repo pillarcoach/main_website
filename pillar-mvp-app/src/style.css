@@ -10,9 +10,13 @@
   --p-muted-soft: #A6A6A6;
   --p-hair: rgba(13,13,13,0.08);
   --p-hair-strong: rgba(13,13,13,0.14);
-  --p-accent: #E98B7A;
+  --p-accent: #9B2B2B;
   --p-disabled-bg: #E6E4DF;
   --p-disabled-ink: #B8B5AE;
+}
+
+
+:root {
 
   /* Legacy tokens kept for coach/session pages */
   --bg-primary: #F2F1ED;
@@ -111,37 +115,27 @@ body::before {
 
 /* Brand */
 .brand {
-  font-size: 2.5rem;
+  font-family: 'Inter Tight', 'Inter', -apple-system, sans-serif;
+  font-size: 0.875rem;
   font-weight: 700;
-  letter-spacing: -0.5px;
+  letter-spacing: 0.22em;
+  text-indent: 0.22em;
+  text-transform: uppercase;
   color: var(--text-primary);
   text-decoration: none;
   display: inline-block;
   margin-bottom: 2rem;
   position: relative;
   transition: opacity 0.2s ease;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 .brand:hover {
   opacity: 0.8;
 }
 
-/* Add period and pink bar after "Pillar" */
-.brand::after {
-  content: '.';
-  color: var(--text-primary);
-}
-
+.brand::after,
 .brand::before {
-  content: '';
-  position: absolute;
-  bottom: 0.35em;
-  left: calc(100% + 0.15em);
-  width: 24px;
-  height: 3px;
-  background: var(--accent-primary);
-  border-radius: 2px;
+  content: none;
 }
 
 /* Main Content */
@@ -2386,24 +2380,18 @@ body::before {
 
 .pillar-logo-word {
   font-family: 'Inter Tight', 'Inter', -apple-system, system-ui, sans-serif;
-  font-weight: 800;
-  font-size: 20px;
-  letter-spacing: -0.03em;
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.22em;
+  text-indent: 0.22em;
+  text-transform: uppercase;
   color: var(--p-ink);
   line-height: 1;
 }
 
-.pillar-logo-dot {
-  color: var(--p-ink);
-}
-
+.pillar-logo-dot,
 .pillar-logo-dash {
-  display: inline-block;
-  width: 18px;
-  height: 2px;
-  background: var(--p-accent);
-  border-radius: 2px;
-  transform: translateY(-2px);
+  display: none;
 }
 
 /* ═══════════════════════════════════════════════
@@ -2415,9 +2403,10 @@ body::before {
   background: var(--p-bg);
   display: flex;
   flex-direction: column;
-  font-family: 'Inter', -apple-system, system-ui, sans-serif;
+  font-family: 'Inter Tight', 'Inter', -apple-system, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
+
 
 .home-hero {
   flex: 1;
@@ -2427,23 +2416,25 @@ body::before {
   align-items: center;
   padding: 0 28px;
   text-align: center;
-  transform: translateY(-40px);
+  transform: translateY(20px);
 }
 
 .home-hero-title {
   font-family: 'Inter Tight', 'Inter', -apple-system, system-ui, sans-serif;
-  font-weight: 800;
-  font-size: clamp(56px, 18vw, 80px);
-  letter-spacing: -0.045em;
+  font-weight: 700;
+  font-size: clamp(2.5rem, 16vw, 5rem);
+  letter-spacing: 0.22em;
+  text-indent: 0.22em;
+  text-transform: uppercase;
   color: var(--p-ink);
   line-height: 1;
 }
 
 .home-keywords {
-  margin-top: 18px;
-  font-size: 11px;
+  margin-top: 16px;
+  font-size: 10px;
   font-weight: 600;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.18em;
   color: var(--p-muted);
   display: flex;
   gap: 10px;
@@ -2459,7 +2450,7 @@ body::before {
 }
 
 .home-divider {
-  margin-top: 44px;
+  margin-top: 24px;
   width: 40px;
   height: 2px;
   background: var(--p-accent);
@@ -2467,22 +2458,12 @@ body::before {
 }
 
 .home-tagline {
-  margin-top: 18px;
+  margin-top: 16px;
   font-size: 17px;
-  color: var(--p-ink-soft);
-  max-width: 320px;
-  line-height: 1.5;
+  color: var(--p-muted);
+  max-width: 300px;
+  line-height: 1.6;
   font-weight: 400;
-}
-
-.home-tagline-underscore {
-  display: inline-block;
-  width: 0.95em;
-  height: 2px;
-  margin-left: 0.24em;
-  background: var(--p-accent);
-  border-radius: 999px;
-  vertical-align: -0.18em;
 }
 
 .home-cta {
@@ -2499,7 +2480,7 @@ body::before {
   border-radius: 18px;
   background: var(--p-ink);
   color: #fff;
-  font-family: 'Inter', -apple-system, system-ui, sans-serif;
+  font-family: 'Inter Tight', 'Inter', -apple-system, system-ui, sans-serif;
   font-size: 17px;
   font-weight: 600;
   letter-spacing: -0.01em;
