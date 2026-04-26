@@ -14,16 +14,16 @@ const nextConfig: NextConfig = {
         destination: `${betaOrigin}/`,
       },
       {
+        source: "/beta/",
+        destination: `${betaOrigin}/`,
+      },
+      {
         source: "/beta/:path*",
         destination: `${betaOrigin}/:path*`,
       },
       {
         source: "/assets/:path*",
         destination: `${betaOrigin}/assets/:path*`,
-      },
-      {
-        source: "/api/tts",
-        destination: `${betaOrigin}/api/tts`,
       },
     ];
   },
