@@ -1,25 +1,11 @@
 import type { Metadata } from 'next'
-import { Space_Grotesk, Barlow_Condensed, Inter_Tight } from 'next/font/google'
+import { Inter_Tight } from 'next/font/google'
 import ThemeProvider from '@/components/ThemeProvider'
 import './globals.css'
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  weight: ['400', '500', '700'],
-  variable: '--font-space-grotesk',
-  display: 'swap',
-})
-
-const barlowCondensed = Barlow_Condensed({
-  subsets: ['latin'],
-  weight: ['700'],
-  variable: '--font-barlow',
-  display: 'swap',
-})
-
 const interTight = Inter_Tight({
   subsets: ['latin'],
-  weight: ['800'],
+  weight: ['400', '500', '700', '800'],
   variable: '--font-inter-tight',
   display: 'swap',
 })
@@ -31,11 +17,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${barlowCondensed.variable} ${interTight.variable}`}>
+    <html lang="en" className={interTight.variable}>
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var s=localStorage.getItem('theme');var d=s||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');if(d==='dark')document.documentElement.classList.add('dark');}catch(e){}})();`,
+            __html: `(function(){try{var s=localStorage.getItem('theme');if(s==='light'){} else{document.documentElement.classList.add('dark');}}catch(e){document.documentElement.classList.add('dark');}})();`,
           }}
         />
       </head>

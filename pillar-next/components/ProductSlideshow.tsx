@@ -46,7 +46,7 @@ export default function ProductSlideshow() {
           className="absolute left-3 top-1/2 -translate-y-1/2
             w-8 h-8 flex items-center justify-center rounded-full
             bg-[#1A1A1A]/20 hover:bg-[#1A1A1A]/40
-            transition-all duration-200 opacity-0 group-hover:opacity-100"
+            transition-all duration-200 opacity-100 lg:opacity-0 lg:group-hover:opacity-100"
         >
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="15 18 9 12 15 6"/>
@@ -60,7 +60,7 @@ export default function ProductSlideshow() {
           className="absolute right-3 top-1/2 -translate-y-1/2
             w-8 h-8 flex items-center justify-center rounded-full
             bg-[#1A1A1A]/20 hover:bg-[#1A1A1A]/40
-            transition-all duration-200 opacity-0 group-hover:opacity-100"
+            transition-all duration-200 opacity-100 lg:opacity-0 lg:group-hover:opacity-100"
         >
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="9 18 15 12 9 6"/>

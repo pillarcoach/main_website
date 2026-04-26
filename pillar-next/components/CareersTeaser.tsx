@@ -49,7 +49,7 @@ export default function CareersTeaser() {
 
       <div
         aria-hidden
-        className="absolute bottom-[-2rem] left-1/2 -translate-x-1/2 font-display font-bold uppercase
+        className="absolute bottom-[-2rem] left-1/2 -translate-x-1/2 font-sans font-bold uppercase
           text-[clamp(6rem,18vw,15rem)] leading-none tracking-[0.22em]
           text-[#1A1A1A]/[0.12] dark:text-[#F0EDE8]/[0.06] whitespace-nowrap pointer-events-none select-none"
         style={{ filter: 'blur(1.5px)' }}
