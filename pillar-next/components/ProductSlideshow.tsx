@@ -29,7 +29,7 @@ export default function ProductSlideshow() {
       px-6 md:px-10 lg:px-16 pt-24 pb-10">
 
       {/* Frame — fixed 16:9, images fit inside */}
-      <div className="w-[70%] mx-auto aspect-video rounded-xl overflow-hidden border border-[#1A1A1A]/12 dark:border-[#F0EDE8]/12 relative group">
+      <div className="w-full aspect-[3/4] lg:w-[70%] lg:aspect-video mx-auto rounded-xl overflow-hidden border border-[#1A1A1A]/12 dark:border-[#F0EDE8]/12 relative group">
         <Image
           key={current}
           src={slides[current]}
