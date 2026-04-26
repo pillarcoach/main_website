@@ -8,7 +8,7 @@ export default function CareersTeaser() {
     <section className="border-t border-[#1A1A1A]/10 dark:border-[#F0EDE8]/10 relative overflow-hidden px-6 md:px-10 lg:px-16 py-24 lg:py-36 min-h-[40vh] flex items-center">
 
       <div className="relative z-10 max-w-lg">
-        <p className="text-xs font-semibold tracking-[0.28em] uppercase text-[#1A1A1A]/35 dark:text-[#F0EDE8]/35 mb-10
+        <p className="text-base font-semibold tracking-[0.28em] uppercase text-[#1A1A1A]/35 dark:text-[#F0EDE8]/35 mb-10
           flex items-center gap-4 after:block after:w-9 after:h-px after:bg-[#1A1A1A]/10 dark:after:bg-[#F0EDE8]/10">
           The team
         </p>
@@ -49,12 +49,12 @@ export default function CareersTeaser() {
 
       <div
         aria-hidden
-        className="absolute bottom-[-2rem] left-1/2 -translate-x-1/2 font-bold
-          text-[clamp(6rem,18vw,15rem)] leading-none tracking-[-0.03em]
-          text-[#1A1A1A]/[0.04] dark:text-[#F0EDE8]/[0.04] whitespace-nowrap pointer-events-none select-none"
+        className="absolute bottom-[-2rem] left-1/2 -translate-x-1/2 font-display font-bold uppercase
+          text-[clamp(6rem,18vw,15rem)] leading-none tracking-[0.22em]
+          text-[#1A1A1A]/[0.12] dark:text-[#F0EDE8]/[0.06] whitespace-nowrap pointer-events-none select-none"
         style={{ filter: 'blur(1.5px)' }}
       >
-        Pillar.
+        Pillar
       </div>
     </section>
   )

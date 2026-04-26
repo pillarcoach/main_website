@@ -23,7 +23,7 @@ export default function Features() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="hidden lg:block mb-0 lg:sticky lg:top-20"
         >
-          <p className="text-xs font-semibold tracking-[0.28em] uppercase text-[#1A1A1A]/35 dark:text-[#F0EDE8]/35 mb-10
+          <p className="text-base font-semibold tracking-[0.28em] uppercase text-[#1A1A1A]/35 dark:text-[#F0EDE8]/35 mb-10
             flex items-center gap-4 after:block after:w-9 after:h-px after:bg-[#1A1A1A]/10 dark:after:bg-[#F0EDE8]/10">
             What Pillar does
           </p>
@@ -39,7 +39,7 @@ export default function Features() {
 
         {/* Feature list */}
         <div>
-          <p className="lg:hidden text-xs font-semibold tracking-[0.28em] uppercase text-[#1A1A1A]/35 dark:text-[#F0EDE8]/35 mb-10
+          <p className="lg:hidden text-base font-semibold tracking-[0.28em] uppercase text-[#1A1A1A]/35 dark:text-[#F0EDE8]/35 mb-10
             flex items-center gap-4 after:block after:w-9 after:h-px after:bg-[#1A1A1A]/10 dark:after:bg-[#F0EDE8]/10">
             What Pillar does
           </p>

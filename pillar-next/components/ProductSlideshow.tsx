@@ -1,16 +1,25 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
-const slides = [
-  '/visuals/1.png',
-  '/visuals/2.png',
-  '/visuals/3.png',
-]
+const desktopSlides = ['/visuals/1.png', '/visuals/2.png', '/visuals/3.png']
+const mobileSlides  = ['/visuals/1.png', '/visuals/2.png', '/visuals/4.png', '/visuals/5.png']
 
 export default function ProductSlideshow() {
+  const [slides, setSlides] = useState(desktopSlides)
   const [current, setCurrent] = useState(0)
+
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 1024px)')
+    const update = () => {
+      setSlides(mq.matches ? desktopSlides : mobileSlides)
+      setCurrent(0)
+    }
+    update()
+    mq.addEventListener('change', update)
+    return () => mq.removeEventListener('change', update)
+  }, [])
 
   const prev = () => setCurrent(c => (c - 1 + slides.length) % slides.length)
   const next = () => setCurrent(c => (c + 1) % slides.length)
@@ -20,7 +29,7 @@ export default function ProductSlideshow() {
       px-6 md:px-10 lg:px-16 pt-24 pb-10">
 
       {/* Frame — fixed 16:9, images fit inside */}
-      <div className="w-full aspect-[3/4] lg:w-[70%] lg:aspect-video mx-auto rounded-xl overflow-hidden border border-[#1A1A1A]/12 dark:border-[#F0EDE8]/12 relative group">
+      <div className="w-[70%] mx-auto aspect-video rounded-xl overflow-hidden border border-[#1A1A1A]/12 dark:border-[#F0EDE8]/12 relative group">
         <Image
           key={current}
           src={slides[current]}
