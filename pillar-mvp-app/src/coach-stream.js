@@ -43,6 +43,7 @@ let coachesCollection = null; // Subcollection to track active coaches
 let currentSignalingVersion = 1; // Tracks active WebRTC signaling generation
 let lastReconnectRequestMs = 0; // Prevents duplicate reconnect handling
 let isRefreshingConnection = false;
+let unsubscribeAnswerCandidates = null;
 
 const EXERCISE_DISPLAY_NAMES = {
   'bench-press':      'Bench Press',
@@ -217,6 +218,21 @@ async function publishOffer(version) {
   }, { merge: true });
 }
 
+function subscribeAnswerCandidates(answerCandidates) {
+  if (unsubscribeAnswerCandidates) {
+    unsubscribeAnswerCandidates();
+  }
+  unsubscribeAnswerCandidates = answerCandidates.onSnapshot((snapshot) => {
+    snapshot.docChanges().forEach((change) => {
+      if (change.type === 'added') {
+        const candidateData = change.doc.data();
+        if ((candidateData.version || 1) !== currentSignalingVersion || !pc) return;
+        pc.addIceCandidate(new RTCIceCandidate(candidateData));
+      }
+    });
+  });
+}
+
 async function refreshClientConnection() {
   if (isRefreshingConnection || !callDoc) return;
 
@@ -237,6 +253,9 @@ async function refreshClientConnection() {
 
     await publishOffer(currentSignalingVersion + 1);
     console.log('[RECONNECT] offer published, currentSignalingVersion=', currentSignalingVersion);
+
+    subscribeAnswerCandidates(callDoc.collection('answerCandidates'));
+
     showStatus('Client reconnecting...', 'info');
     updateConnectionStatus(false);
   } catch (error) {
@@ -406,21 +425,8 @@ async function startNewSession() {
       }
     });
 
-    // When answered, add candidate to peer connection
-    answerCandidates.onSnapshot((snapshot) => {
-      snapshot.docChanges().forEach((change) => {
-        if (change.type === 'added') {
-          const candidateData = change.doc.data();
-          if ((candidateData.version || 1) !== currentSignalingVersion || !pc) {
-            return;
-          }
+    subscribeAnswerCandidates(answerCandidates);
 
-          const candidate = new RTCIceCandidate(candidateData);
-          pc.addIceCandidate(candidate);
-        }
-      });
-    });
-    
     // Load session history
     loadSessionHistory();
   } catch (error) {
@@ -565,19 +571,7 @@ async function joinExistingSession(joinKey) {
     });
     
     // Listen for answer candidates from client
-    answerCandidates.onSnapshot((snapshot) => {
-      snapshot.docChanges().forEach((change) => {
-        if (change.type === 'added') {
-          const candidateData = change.doc.data();
-          if ((candidateData.version || 1) !== currentSignalingVersion || !pc) {
-            return;
-          }
-
-          const candidate = new RTCIceCandidate(candidateData);
-          pc.addIceCandidate(candidate);
-        }
-      });
-    });
+    subscribeAnswerCandidates(answerCandidates);
 
     // Listen for offer candidates
     offerCandidates.onSnapshot((snapshot) => {

@@ -1,4 +1,5 @@
 import './style.css';
+import { navigate, replace } from './basePath.js';
 
 import firebase from 'firebase/app';
 import 'firebase/firestore';
@@ -47,7 +48,7 @@ const backBtn       = document.getElementById('flowBackBtn');
 const urlParams = new URLSearchParams(window.location.search);
 const joinKey = urlParams.get('joinKey') || localStorage.getItem('clientJoinKey');
 
-if (!joinKey) window.location.replace('client.html');
+if (!joinKey) replace('client.html');
 if (backBtn) backBtn.href = 'client.html';
 
 // ── Helpers ────────────────────────────────────────────────────────────────
@@ -262,7 +263,7 @@ if (startBtn) {
     localStorage.setItem('clientJoinKey', joinKey);
     localStorage.setItem('clientSelectedExercise', exercise);
     localStorage.setItem('clientExerciseOrder', JSON.stringify(order));
-    window.location.href = `client-session.html?joinKey=${encodeURIComponent(joinKey)}&exercise=${encodeURIComponent(exercise)}`;
+    navigate(`client-session.html?joinKey=${encodeURIComponent(joinKey)}&exercise=${encodeURIComponent(exercise)}`);
   });
 }
 

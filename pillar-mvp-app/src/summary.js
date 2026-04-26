@@ -1,4 +1,5 @@
 import './style.css';
+import { navigate } from './basePath.js';
 
 // Get summary data from URL parameters or localStorage
 const urlParams = new URLSearchParams(window.location.search);
@@ -34,7 +35,7 @@ function displaySummary(summary) {
   
   const summaryList = document.createElement('ul');
   summaryList.className = 'summary-list-full';
-  
+
   summary.forEach((feedback, index) => {
     const listItem = document.createElement('li');
     listItem.className = 'summary-item-full';
@@ -50,10 +51,10 @@ function displaySummary(summary) {
 returnToSessionButton.addEventListener('click', () => {
   if (joinKey) {
     // Redirect to client page with join key
-    window.location.href = `client.html?joinKey=${encodeURIComponent(joinKey)}`;
+    navigate(`client.html?joinKey=${encodeURIComponent(joinKey)}`);
   } else {
     // Just go to client page
-    window.location.href = 'client.html';
+    navigate('client.html');
   }
 });
 

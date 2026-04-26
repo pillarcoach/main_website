@@ -1,4 +1,5 @@
 import './style.css';
+import { navigate } from './basePath.js';
 
 import firebase from 'firebase/app';
 import 'firebase/firestore';
@@ -75,7 +76,7 @@ async function joinSession() {
     localStorage.setItem('clientJoinKey', callId);
     localStorage.removeItem('clientSelectedExercise');
     hideStatus();
-    window.location.href = `client-workout.html?joinKey=${encodeURIComponent(callId)}`;
+    navigate(`client-workout.html?joinKey=${encodeURIComponent(callId)}`);
   } catch (error) {
     console.error('Error validating session:', error);
     showStatus('Unable to join session right now. Please try again.', 'error');

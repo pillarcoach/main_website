@@ -1,4 +1,5 @@
 import './style.css';
+import { navigate, replace } from './basePath.js';
 
 import firebase from 'firebase/app';
 import 'firebase/firestore';
@@ -355,7 +356,7 @@ function leaveSession() {
   }
 
   localStorage.removeItem('clientSelectedExercise');
-  window.location.href = 'client.html';
+  navigate('client.html');
 }
 
 // ── Audio (ElevenLabs via /api/tts) ───────────────────────────────────────
@@ -859,12 +860,12 @@ async function startSession() {
   const exercise = urlParams.get('exercise') || localStorage.getItem('clientSelectedExercise');
 
   if (!joinKey) {
-    window.location.replace('client.html');
+    replace('client.html');
     return;
   }
 
   if (!exercise) {
-    window.location.replace(`client-workout.html?joinKey=${encodeURIComponent(joinKey)}`);
+    replace(`client-workout.html?joinKey=${encodeURIComponent(joinKey)}`);
     return;
   }
 
