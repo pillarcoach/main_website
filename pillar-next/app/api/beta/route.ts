@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
       subject: "You're on the list.",
       html: `
         <div style="font-family: system-ui, sans-serif; max-width: 480px; margin: 0 auto; padding: 48px 24px; color: #1A1A1A;">
-          <p style="font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #9B2B2B; margin: 0 0 32px;">Pillar</p>
+          <p style="font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #1A1A1A; margin: 0 0 32px;">Pillar</p>
           <p style="font-size: 15px; line-height: 1.7; color: #1A1A1A; margin: 0 0 16px;">Hi there,</p>
           <p style="font-size: 15px; line-height: 1.7; color: #1A1A1A; margin: 0 0 16px;">Thanks for signing up for the Pillar beta.</p>
           <p style="font-size: 15px; line-height: 1.7; color: #1A1A1A; margin: 0 0 16px;">We're excited to get you started. To make sure your first session goes smoothly, we'd like to be available during the beta in case anything needs troubleshooting or setup support.</p>
