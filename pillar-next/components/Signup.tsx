@@ -48,7 +48,7 @@ export default function Signup() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
           className="text-[0.9375rem] text-[#1A1A1A]/55 dark:text-[#F0EDE8]/55 leading-[1.7] max-w-sm mb-10"
         >
-          We're running beta sessions now. Sign up and we'll reach out within 24 hours to book yours.
+          We're running beta sessions now. Access Pillar on your phone. Sign up and we'll reach out within 24 hours to book yours.
         </motion.p>
 
         {status === 'done' ? (
@@ -57,7 +57,7 @@ export default function Signup() {
             animate={{ opacity: 1 }}
             className="text-[0.9375rem] text-[#1A1A1A]/55 dark:text-[#F0EDE8]/55"
           >
-            You're on the list. We'll be in touch within 24 hours.
+            You're on the list. You should get an email anytime now.
           </motion.p>
         ) : (
           <motion.form
@@ -72,7 +72,7 @@ export default function Signup() {
               type="email"
               value={email}
               onChange={e => setEmail(e.target.value)}
-              placeholder="your@email.com"
+              placeholder="no_more_bad_reps@email.com"
               required
               inputMode="email"
               autoComplete="email"
@@ -100,7 +100,7 @@ export default function Signup() {
         )}
         {status !== 'done' && (
           <p className="mt-4 text-[0.75rem] text-[#1A1A1A]/35 dark:text-[#F0EDE8]/35">
-            We'll reach out within 24 hours to book your session.
+            You will get a confirmation email shortly. No spam, just beta updates.
           </p>
         )}
       </div>

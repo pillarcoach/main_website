@@ -28,9 +28,9 @@ export default function CareersTeaser() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
           className="text-[0.9375rem] text-[#1A1A1A]/55 dark:text-[#F0EDE8]/55 leading-[1.75] mb-8 max-w-sm"
         >
-          We're a small team building hardware we'd actually want to use.
-          If you care about computer vision, precision engineering, or just want
-          to work on something physical — reach out. No forms, no roles. Just a conversation.
+          We&apos;re combining computer vision, biomechanics, and real training insight.<br />
+          If you build in this space — or train people and care about form — we should talk.<br />
+          No roles. No process. Just a conversation.
         </motion.p>
         <motion.a
           initial={{ opacity: 0 }}
@@ -45,6 +45,15 @@ export default function CareersTeaser() {
         >
           Say hello →
         </motion.a>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.25 }}
+          className="mt-3 text-[0.8rem] text-[#1A1A1A]/40 dark:text-[#F0EDE8]/40"
+        >
+          pillar.coach@gmail.com
+        </motion.p>
       </div>
 
       <div
