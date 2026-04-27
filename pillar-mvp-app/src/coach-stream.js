@@ -189,10 +189,20 @@ function initPeerConnection() {
   };
 }
 
+async function deleteCollection(colRef) {
+  const snap = await colRef.get();
+  const deletes = snap.docs.map(d => d.ref.delete());
+  await Promise.all(deletes);
+}
+
 async function publishOffer(version) {
   if (!pc || !callDoc) return;
 
   currentSignalingVersion = version;
+
+  // Clear stale candidates from previous sessions so they don't interfere with ICE
+  await deleteCollection(callDoc.collection('offerCandidates'));
+  await deleteCollection(callDoc.collection('answerCandidates'));
 
   pc.onicecandidate = (event) => {
     if (event.candidate) {
