@@ -3,9 +3,9 @@
 import { motion } from 'framer-motion'
 
 const statements = [
-  'You train alone. Every rep, good habits and bad ones compound in silence.',
+  'You train alone. Without feedback, bad habits become routine.',
   'Injury doesn\'t warn you. By the time you feel it, you\'ve already done it a hundred times.',
-  'A good coach would have caught it. Most people never have one.',
+  'Right guidance catches mistakes as they happen. Most people never get it.',
 ]
 
 export default function Why() {
