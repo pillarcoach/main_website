@@ -93,7 +93,7 @@ export default function Hero() {
             className="text-base leading-[1.8] text-[#1A1A1A]/55 dark:text-[#F0EDE8]/55 max-w-sm mb-10"
           >
             Pillar watches your movement in real time. When your form breaks,
-            it says so — out loud, while you're still lifting.
+            you hear it while you're still lifting.
           </motion.p>
 
           <motion.div {...enter(0.44)} className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
