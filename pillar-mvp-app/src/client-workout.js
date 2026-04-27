@@ -96,12 +96,7 @@ function render() {
 
     item.innerHTML = `
       <div class="flow-rank ${idx === 0 ? 'flow-rank--first' : ''}">${idx + 1}</div>
-      <div class="flow-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="${block.iconPath}" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <div class="flow-item-text">
+<div class="flow-item-text">
         <div class="flow-item-title">${block.title}</div>
         <div class="flow-item-detail">${block.detail}</div>
       </div>

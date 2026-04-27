@@ -1,5 +1,6 @@
 import './style.css';
 import { navigate, replace } from './basePath.js';
+import { getIceServers } from './iceServers.js';
 
 import firebase from 'firebase/app';
 import 'firebase/firestore';
@@ -19,11 +20,9 @@ if (!firebase.apps.length) {
 }
 const firestore = firebase.firestore();
 
-const servers = {
+let servers = {
   iceServers: [
-    {
-      urls: ['stun:stun1.l.google.com:19302', 'stun:stun2.l.google.com:19302'],
-    },
+    { urls: ['stun:stun1.l.google.com:19302', 'stun:stun2.l.google.com:19302'] },
   ],
   iceCandidatePoolSize: 10,
 };
@@ -171,7 +170,8 @@ function showStatus(message, type = 'info') {
   }
 }
 
-function initPeerConnection() {
+async function initPeerConnection() {
+  servers = await getIceServers();
   pc = new RTCPeerConnection(servers);
 
   pc.oniceconnectionstatechange = () => {
@@ -885,7 +885,7 @@ async function startSession() {
     showStatus('Starting workout...', 'info');
 
     localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
-    initPeerConnection();
+    await initPeerConnection();
 
     localStream.getTracks().forEach((track) => {
       pc.addTrack(track, localStream);

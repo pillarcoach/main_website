@@ -123,9 +123,9 @@ slots.forEach((slot, i) => {
   });
 });
 
-// Pre-fill from URL or localStorage
+// Pre-fill from URL only (never from localStorage, to avoid showing stale session codes)
 const urlParams = new URLSearchParams(window.location.search);
-const urlJoinKey = urlParams.get('joinKey') || localStorage.getItem('clientJoinKey');
+const urlJoinKey = urlParams.get('joinKey');
 if (urlJoinKey) {
   urlJoinKey.toUpperCase().slice(0, 6).split('').forEach((char, i) => {
     if (slots[i]) {

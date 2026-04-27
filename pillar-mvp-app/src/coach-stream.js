@@ -2,6 +2,7 @@ import './style.css';
 
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import { getIceServers } from './iceServers.js';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -19,11 +20,9 @@ if (!firebase.apps.length) {
 }
 const firestore = firebase.firestore();
 
-const servers = {
+let servers = {
   iceServers: [
-    {
-      urls: ['stun:stun1.l.google.com:19302', 'stun:stun2.l.google.com:19302'],
-    },
+    { urls: ['stun:stun1.l.google.com:19302', 'stun:stun2.l.google.com:19302'] },
   ],
   iceCandidatePoolSize: 10,
 };
@@ -158,7 +157,8 @@ if (incrementRep) incrementRep.disabled = true;
 if (decrementRep) decrementRep.disabled = true;
 
 // Initialize peer connection
-function initPeerConnection() {
+async function initPeerConnection() {
+  servers = await getIceServers();
   pc = new RTCPeerConnection(servers);
   remoteStream = new MediaStream();
 
@@ -258,7 +258,7 @@ async function refreshClientConnection() {
     remoteStream = null;
     if (remoteVideo) remoteVideo.srcObject = null;
 
-    initPeerConnection();
+    await initPeerConnection();
     if (remoteVideo) remoteVideo.srcObject = remoteStream;
 
     await publishOffer(currentSignalingVersion + 1);
@@ -288,9 +288,9 @@ async function startNewSession() {
 
     // Generate unique coach ID
     coachId = `coach_stream_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-    
+
     // Initialize peer connection
-    initPeerConnection();
+    await initPeerConnection();
 
     // Create Firestore document for this call (WebRTC signaling)
     const joinKey = Math.random().toString(36).substr(2, 6).toUpperCase();
@@ -465,7 +465,7 @@ async function joinExistingSession(joinKey) {
     }
     
     // Initialize peer connection
-    initPeerConnection();
+    await initPeerConnection();
     currentSignalingVersion = callData.data()?.signalingVersion || 1;
     
     // Get collections
