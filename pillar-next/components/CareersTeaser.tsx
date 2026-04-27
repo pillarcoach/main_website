@@ -28,8 +28,8 @@ export default function CareersTeaser() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
           className="text-[0.9375rem] text-[#1A1A1A]/55 dark:text-[#F0EDE8]/55 leading-[1.75] mb-8 max-w-sm"
         >
-          We&apos;re combining computer vision, biomechanics, and real training insight.<br />
-          If you build in this space — or train people and care about form — we should talk.<br />
+          We&apos;re combining computer vision, biomechanics, and real training insight. If you build in this space — 
+          or train people and care about form — we should talk.<br />
           No roles. No process. Just a conversation.
         </motion.p>
         <motion.a
