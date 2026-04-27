@@ -8,10 +8,6 @@ export default function CareersTeaser() {
     <section className="border-t border-[#1A1A1A]/10 dark:border-[#F0EDE8]/10 relative overflow-hidden px-6 md:px-10 lg:px-16 py-24 lg:py-36 min-h-[40vh] flex items-center">
 
       <div className="relative z-10 max-w-lg">
-        <p className="text-base font-semibold tracking-[0.28em] uppercase text-[#1A1A1A]/35 dark:text-[#F0EDE8]/35 mb-10
-          flex items-center gap-4 after:block after:w-9 after:h-px after:bg-[#1A1A1A]/10 dark:after:bg-[#F0EDE8]/10">
-          The team
-        </p>
         <motion.h3
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
