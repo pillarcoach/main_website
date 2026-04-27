@@ -17,11 +17,14 @@ export async function POST(req: NextRequest) {
       html: `
         <div style="font-family: system-ui, sans-serif; max-width: 480px; margin: 0 auto; padding: 48px 24px; color: #1A1A1A;">
           <p style="font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #9B2B2B; margin: 0 0 32px;">Pillar</p>
-          <h1 style="font-size: 28px; font-weight: 700; line-height: 1.1; margin: 0 0 16px;">We have you on our list.</h1>
-          <p style="font-size: 15px; line-height: 1.7; color: #555; margin: 0 0 32px;">
-            We'll reach out within 24 hours to book your beta session.
-          </p>
-          <p style="font-size: 13px; color: #999; margin: 0;">— The Pillar team</p>
+          <p style="font-size: 15px; line-height: 1.7; color: #1A1A1A; margin: 0 0 16px;">Hi there,</p>
+          <p style="font-size: 15px; line-height: 1.7; color: #1A1A1A; margin: 0 0 16px;">Thanks for signing up for the Pillar beta.</p>
+          <p style="font-size: 15px; line-height: 1.7; color: #1A1A1A; margin: 0 0 16px;">We're excited to get you started. To make sure your first session goes smoothly, we'd like to be available during the beta in case anything needs troubleshooting or setup support.</p>
+          <p style="font-size: 15px; line-height: 1.7; color: #1A1A1A; margin: 0 0 16px;">Please use the calendar link below to book a time that works for you:</p>
+          <a href="https://calendly.com/pillar-coach/30min" style="display: inline-block; font-size: 15px; color: #9B2B2B; margin: 0 0 24px;">https://calendly.com/pillar-coach/30min</a>
+          <p style="font-size: 15px; line-height: 1.7; color: #1A1A1A; margin: 0 0 32px;">Once you choose a slot, we'll send over everything you need.</p>
+          <p style="font-size: 15px; line-height: 1.7; color: #1A1A1A; margin: 0 0 32px;">Looking forward to your first session.</p>
+          <p style="font-size: 13px; color: #999; margin: 0;">— Team Pillar</p>
         </div>
       `,
     })
