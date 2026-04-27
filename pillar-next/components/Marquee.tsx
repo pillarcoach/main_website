@@ -1,10 +1,10 @@
 const items = [
-  'Real-time audio coaching',
+  'Real-time audio feedback',
   'Computer vision',
-  'Injury prevention',
-  'Rep & set tracking',
-  'Form correction',
-  'No trainer required',
+  'Form guidance',
+  'Rep & set logging',
+  'Fatigue Detection',
+  'Place, Lift, Listen, Repeat',
 ]
 
 const repeated = [...items, ...items]

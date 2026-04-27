@@ -85,7 +85,7 @@ export default function Hero() {
             {...enter(0.2)}
             className="display text-[clamp(3rem,9vw,6rem)] font-bold leading-[1.02] tracking-[-0.03em] mb-6 text-[#1A1A1A] dark:text-[#F0EDE8]"
           >
-            Every rep<br />tells the truth.
+            Train right<br />with feedback that matters.
           </motion.h1>
 
           <motion.p

@@ -6,15 +6,15 @@ import { motion } from 'framer-motion'
 const steps = [
   {
     title: 'Place',
-    body: 'Set Pillar on the floor or a bench facing your rack. It sees everything from there — your full range of motion, both sides, every rep. Ten seconds. Done.',
+    body: 'Set Pillar on the floor or a bench facing your rack. We guides you through it. Ten seconds. Done.',
   },
   {
     title: 'Lift',
-    body: 'Train exactly as you normally would. Pillar runs in the background — tracking every rep, reading depth and symmetry, building a picture of how you move. You don\'t think about it.',
+    body: 'Train exactly as you normally would. Pillar runs in the background — tracking every rep, reading depth and symmetry, building a picture of how you move. Pillar fits into your routine, not the other way around.',
   },
   {
     title: 'Listen',
-    body: 'When something\'s off, you hear it. Not after the set — during it. A real-time cue, in plain language, telling you exactly what to fix. Like a coach standing next to you. Without the small talk.',
+    body: 'When something\'s off, you hear it. Not after the set — during it. A real-time cue, in plain language, telling you exactly what to fix. No more guesswork.',
   },
 ]
 
