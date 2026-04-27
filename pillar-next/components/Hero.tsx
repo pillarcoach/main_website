@@ -1,7 +1,9 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { useTheme } from './ThemeProvider'
 import Marquee from './Marquee'
 
 const ez = [0.22, 1, 0.36, 1] as [number, number, number, number]
@@ -12,10 +14,62 @@ const enter = (delay = 0) => ({
 })
 
 export default function Hero() {
+  const { theme } = useTheme()
+
   return (
     <section className="relative min-h-[100dvh] flex flex-col overflow-hidden">
 
-      <div className="flex-1 flex items-center px-6 md:px-10 lg:px-16 pt-28 pb-10">
+      {/* Device image — light mode, desktop only, emerges from bottom-right */}
+      {theme === 'light' && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, delay: 0.3 }}
+          className="hidden lg:block absolute"
+          style={{
+            width: '100%',
+            height: '150vh',
+            right: '-35%',
+            bottom: '-45vh',
+            transform: 'rotate(-74deg)',
+          }}
+        >
+          <Image
+            src="/visuals/0L2.png"
+            alt="Pillar device"
+            fill
+            priority
+            className="object-contain object-center"
+          />
+        </motion.div>
+      )}
+
+      {/* Device image — dark mode, desktop only, emerges from bottom-right */}
+      {theme === 'dark' && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, delay: 0.3 }}
+          className="hidden lg:block absolute"
+          style={{
+            width: '100%',
+            height: '150vh',
+            right: '-35%',
+            bottom: '-45vh',
+            transform: 'rotate(-74deg)',
+          }}
+        >
+          <Image
+            src="/visuals/0.png"
+            alt="Pillar device"
+            fill
+            priority
+            className="object-contain object-center"
+          />
+        </motion.div>
+      )}
+
+      <div className="flex-1 flex items-center px-6 md:px-10 lg:px-16 pt-28 pb-10 relative z-10">
         <div className="max-w-2xl w-full">
           <motion.div {...enter(0.1)} className="flex items-center gap-2 mb-7">
             <span
